@@ -3,7 +3,7 @@ export interface reducers {
   user: object
 }
 
-export interface action {
+export interface storeAction {
   type: string,
   payload: object
 }

@@ -1,3 +1,5 @@
+/* eslint no-use-before-define: 0 */
+
 import { ReportHandler } from 'web-vitals';
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
