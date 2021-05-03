@@ -17,6 +17,20 @@ module.exports = {
     "no-unused-vars": ["warn"],
     "import/prefer-default-export": ["warn"],
     "no-nested-ternary": "off",
+    "linebreak-style": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-indent": "off",
+    "indent": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/label-has-associated-control": 'off',
+    'jsx-a11y/no-static-element-interactions': "off",
+    "function-paren-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "no-confusing-arrow": "off",
+    "no-underscore-dangle": "off",
+    "no-unneeded-ternary": "off",
+    "no-param-reassign": "off"
     // You can override any rules you want
   },
   plugins: [
