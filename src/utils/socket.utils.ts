@@ -1,5 +1,3 @@
-declare var process;
-
 import socketIOClient from "socket.io-client";
 
 const connectSocket = () => {
