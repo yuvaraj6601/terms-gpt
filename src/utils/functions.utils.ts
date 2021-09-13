@@ -4,6 +4,7 @@ export const getBaseURL = () => {
   let baseURL = 'https://api.hellaviews.com'
   if(process.env.REACT_APP_NODE_ENV === "development"){
     baseURL = 'http://localhost:8001'
+    // baseURL = 'http://192.168.0.102:8001'
   }else if(process.env.REACT_APP_NODE_ENV === "stage"){
     baseURL = 'https://stage.hellaviews.com'
   }
