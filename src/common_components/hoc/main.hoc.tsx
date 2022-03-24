@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 import { reducers } from "interfaces/common.interface"
 import connectSocket from "utils/socket.utils"
 
-let socket:any
+let socket: any
 
 export default function Main(props: any) {
   const [state, setState] = useSetState({ signout: false, loading: false });
   const user = useSelector((store: reducers) => store.user);
 
   useEffect(() => {
-    // socket = connectSocket()
+    socket = connectSocket();
   }, []);
 
   const showSuccess = (text: string) => {
@@ -23,7 +23,7 @@ export default function Main(props: any) {
   }
 
   const setMainLoading = (loading: boolean) => {
-    setState({ loading: loading})
+    setState({ loading: loading })
   }
 
   const renderChildren = () => {
@@ -41,8 +41,8 @@ export default function Main(props: any) {
   };
 
   if (state.signout) window.location.href = "/";
-  if(state.loading)
-  return <div>Loading</div>
+  if (state.loading)
+    return <div>Loading</div>
   return (
     <div>
       {

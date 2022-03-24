@@ -7,7 +7,7 @@ export const instance = () => {
   const data = axios.create({
   baseURL: Functions.getBaseURL()+"/api/v1/",
     headers: {
-        "authorization" :token
+        "authorization" :token || ""
   }
 })
 return data

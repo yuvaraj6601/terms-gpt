@@ -19,9 +19,23 @@ export const useSetState = (initialState: any) => {
   return [state, newSetState]
 }
 
+export const modelError = (error: any) => {
+  console.log(JSON.stringify(error.response));
+  if (error.response.data.message) {
+    return error.response.data.message;
+  } else if (error.message) {
+    return error.message;
+  } else if (error.response) {
+    return error.response;
+  } else {
+    return error;
+  }
+};
+
 const Functions = {
   useSetState,
-  getBaseURL
+  getBaseURL,
+  modelError
 }
 
 export default Functions
