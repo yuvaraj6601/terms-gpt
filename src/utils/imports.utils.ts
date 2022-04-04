@@ -18,7 +18,7 @@ export const Functions = Function
 export const Assets = Asset
 export const Component = CommonComponent
 export const Constants = Constant
-export const Models = Model
+export const Models: any = Model
 // export const Types = Interface
 
 export default imports
