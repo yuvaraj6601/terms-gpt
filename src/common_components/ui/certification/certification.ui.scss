@@ -1,0 +1,48 @@
+@import '../../../index.scss';
+.certification_container {
+  background-color: #e4e4e4;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  .certification_wrapper {
+    width: 90%;
+    // overflow-wrap: break-word;
+    //   width: max-content;
+    .certification_header {
+      font-family: 'Inter';
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      letter-spacing: 0px;
+      text-align: left;
+      // width: 80%;
+      
+    }
+    .certification_type {
+      font-family: 'Inter';
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: $inputHeadingColor;
+    }
+    .certification_year {
+      font-family: 'Inter';
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: $inputHeadingColor;
+      padding-top: 20px;
+    }
+  }
+  .certification_close_icon{
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+}

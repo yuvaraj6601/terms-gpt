@@ -1,0 +1,111 @@
+@import '../../../index.scss';
+
+.dropdown_wrapper {
+  display: flex;
+  align-items: center;
+  background: $inputBackground;
+  width: 100%;
+  padding: 0px 20px;
+  border-radius: 16px;
+  border: 2px solid $buttonTextColor;
+}
+.dropdown_active_text {
+  height: 56px;
+  width: 98%;
+  border-radius: 16px;
+  color: black;
+  align-items: center;
+  justify-content: flex-start;
+  display: flex;
+  font-size: 14px;
+  font-family: 'Inter';
+  font-weight: 600;
+}
+.arrow {
+  height: 8px;
+  width: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.arrow_active {
+  transform: rotate(180deg);
+}
+.dropdown_list {
+  margin-top: 10px;
+  padding: 10px 0px;
+  width: 100%;
+  border-radius: 24px;
+  border: 1px solid #e4e4e4;
+  max-height: 140px;
+  overflow: scroll;
+}
+.list_text {
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Inter';
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: $inputTextColor;
+}
+.list_text:hover {
+  cursor: pointer;
+}
+.dropdown_focus {
+  border: 2px solid #5f75ee;
+  color: $buttonTextColor;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0px 20px;
+  border-radius: 16px;
+}
+// ::-webkit-scrollbar {
+//   display: none;
+// }
+.css-1s2u09g-control {
+  background-color: $inputBackground !important;
+  border-color: $buttonTextColor !important;
+  border-width: 1px;
+  // height: 50px !important;
+  border-radius: 8px !important;
+  padding: 5px;
+}
+.css-1pahdxg-control {
+  // border-width: 0px !important;
+  // box-shadow: none !important;
+  background-color: $inputBackground !important;
+  padding: 5px;
+  border-radius: 8px !important;
+}
+
+.css-1pahdxg-control:hover {
+  // border-color: none !important;
+}
+.css-1okebmr-indicatorSeparator {
+  display: none;
+}
+.css-1rhbuit-multiValue {
+  border-radius: 12px !important;
+  background: $gradientButtonColor;
+  display: flex;
+  justify-content: space-between;
+  width: max-content;
+  color: $buttonTextColor;
+  height: 36px;
+  padding-left: 6px;
+  .css-12jo7m5 {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $buttonTextColor;
+  }
+}

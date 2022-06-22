@@ -1,0 +1,15 @@
+@import '../../../index.scss';
+
+.file_upload_wrapper {
+}
+
+.file_upload_box {
+  display: none;
+}
+.file_upload_box_label_content {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}

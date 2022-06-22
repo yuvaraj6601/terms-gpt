@@ -1,17 +1,38 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-*{
-  box-sizing: border-box;
-}
+$primaryDarkColor: #10213f;
+$primaryLightColor: #586479;
+$primaryDarkText: #0b162b;
+$primaryLightText: #8e8e93;
+$secondaryDarkColor: #f16722;
+$secondaryLightColor: #fff4ef;
+$secondaryDarkText: #ff754c;
+$secondaryLightText: #8e8e93;
+$background: #f7f7f7;
+$secondaryBackground: #f0f5ff;
+$inputBackground: #f7f7f7;
+$buttonTextColor: #ffffff;
+$outline: #f1f1f4;
+$focusOutLine: #cfcfcf;
+$otpOutLine: #ebebeb;
+$cancel: #e73f3f;
+$primaryBtnColor: #1b1d21;
+$secondaryBtnColor: #e4e4e4;
+$gradientButtonColor: linear-gradient(
+  100.12deg,
+  #27c69e -22.5%,
+  #1c7bdf 122.07%
+);
+$inputHeadingColor: #11142d;
+// $inputHeadingColor: #808191;
+$primaryLinkColor: #27c69e;
+$tabInactiveColor: #efefef;
+$inputPlaceholder: #808191;
+$inputTextColor: #11142d;
+$activeTabColor: #1d7bdf;
+$socialBtnColor: #0bb78c;
+$checkboxActive: #7fba7a;
+$iconBadgeBackground: #ff754c;
+$primaryCardColor: #f0f3f6;
+$primaryBorderColor: rgba(128, 129, 145, 0.6);
+$secondaryBorderColor: #1c7bdf;
+$primaryNumberBg: rgba(28, 123, 212, 0.2);
+$error: #ea5224;

@@ -31,7 +31,26 @@ const auth = {
       })
     })
     return promise
-  }
+  },
+  uploadFile: (data) => {
+    let promise = new Promise((resolve, reject) => {
+      let url = 'auth/get_signed_url';
+      instance()
+        .post(url, data)
+        .then((res) => {
+          resolve(res.data);
+        })
+        .catch((error) => {
+          if (error.response) {
+            reject(error.response.data.message);
+          } else {
+            reject(error);
+          }
+        });
+    });
+    return promise;
+  },
 };
+
 
 export default auth;

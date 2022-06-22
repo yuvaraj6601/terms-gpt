@@ -1,0 +1,33 @@
+@import '../../../index.scss';
+
+.react-date-picker__wrapper {
+  border: none !important;
+  background-color: $inputBackground;
+  padding: 10px;
+  border-radius: 8px !important;
+  width: 100% !important;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.date_picker_wrapper {
+  width: 100%;
+}
+.react-date-picker {
+  width: 100%;
+}
+.react-date-picker__inputGroup__input:invalid {
+  background: $inputBackground !important;
+}
+.react-calendar__tile--now {
+  background: $inputBackground !important;
+}
+.react-calendar {
+  width: 350px;
+  max-width: 100%;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid $inputBackground;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.125em;
+}

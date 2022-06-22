@@ -1,7 +1,9 @@
-import test from 'models/test.model'
+import test from 'models/test.model';
+import auth from 'models/auth.model';
 
 export const Models = {
-  test
+  test,
+  auth
 }
 
 export default Models
