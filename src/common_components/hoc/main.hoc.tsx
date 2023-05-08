@@ -1,10 +1,11 @@
-import React, { useEffect, Fragment } from "react";
-import { useSetState } from "utils/functions.utils"
-import { useSelector } from "react-redux";
-import { reducers } from "interfaces/common.interface"
-import connectSocket from "utils/socket.utils"
+import React, { useEffect, Fragment } from 'react';
+import { useSetState } from 'utils/functions.utils';
+import { useSelector } from 'react-redux';
+import { reducers } from 'interfaces/common.interface';
+import connectSocket from 'utils/socket.utils';
+import { Navbar } from 'utils/imports.utils';
 
-let socket: any
+let socket: any;
 
 export default function Main(props: any) {
   const [state, setState] = useSetState({ signout: false, loading: false });
@@ -16,15 +17,15 @@ export default function Main(props: any) {
 
   const showSuccess = (text: string) => {
     //show snack success
-  }
+  };
 
   const throwError = (text: string) => {
     //show snack error
-  }
+  };
 
   const setMainLoading = (loading: boolean) => {
-    setState({ loading: loading })
-  }
+    setState({ loading: loading });
+  };
 
   const renderChildren = () => {
     return React.Children.map(props.children, (child: any) => {
@@ -34,20 +35,18 @@ export default function Main(props: any) {
           showSuccess,
           throwError,
           socket,
-          setMainLoading
+          setMainLoading,
         });
       }
     });
   };
 
-  if (state.signout) window.location.href = "/";
-  if (state.loading)
-    return <div>Loading</div>
+  if (state.signout) window.location.href = '/';
+  if (state.loading) return <div>Loading</div>;
   return (
     <div>
-      {
-        renderChildren()
-      }
+      <Navbar />
+      {renderChildren()}
     </div>
-  )
+  );
 }

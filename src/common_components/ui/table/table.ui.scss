@@ -1,0 +1,16 @@
+@import '../../../index.scss';
+.table_grade_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .table_grade_wrapper {
+    width: fit-content;
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding: 8px;
+    border-radius: 4px;
+    color: $buttonTextColor;
+  }
+}

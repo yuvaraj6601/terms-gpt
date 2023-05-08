@@ -1,8 +1,8 @@
 let isDark = true;
 
 const Light = {
-  primaryDarkColor: "#10213F",
-  primaryLightColor: "#586479",
+  primaryDarkColor: "#41313E",
+  primaryLightColor: "#E7B10A",
   primaryDarkText: "#0B162B",
   primaryLightText: "#8E8E93",
   secondaryDarkColor: "#E73F3F",
@@ -20,8 +20,8 @@ const Light = {
 };
 
 const Dark = {
-  primaryDarkColor: "#10213F",
-  primaryLightColor: "#586479",
+  primaryDarkColor: "#41313E",
+  primaryLightColor: "#E7B10A",
   primaryDarkText: "#0B162B",
   primaryLightText: "#8E8E93",
   secondaryDarkColor: "#F16722",

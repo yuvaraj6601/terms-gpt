@@ -8,17 +8,19 @@ import {
   PrimaryButton,
   Navbutton,
   Assets,
-  Searchbar,
+  Icon,
+  Colors,
 } from 'utils/imports.utils';
 import { testDispatch } from 'utils/redux.utils';
 import './nav_bar.scss';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const Navbar = (props: any) => {
   // Redux
   const userState = useSelector((state: any) => state.user);
 
   // State
-  const [state, setState] = useSetState({ hover: false });
+  const [state, setState] = useSetState({ showDropdown: false });
 
   //Hooks
   useEffect(() => {}, []);
@@ -29,65 +31,82 @@ const Navbar = (props: any) => {
   };
 
   return (
-    <div className="navbar">
-      <div className="search margin_right">
-        <Searchbar onChange={() => {}} value={''} name={'search'} />
-      </div>
-      <div className="create_button margin_right">
-        <PrimaryButton
-          text={'Create New'}
-          icon={Assets.plus_with_box}
-          className={'create_btn'}
-        />
-      </div>
-      <div className="create_button margin_right">
-        {/* <PrimaryButton
-          text={'Logout'}
-          // icon={Assets.plus_with_box}
-          className={'create_btn'}
-          onClick={() => {
-            localStorage.clear();
-            window.location.href = '/login';
-          }}
-        /> */}
-        {/* <Navbutton
-          icon={Assets.settings}
-          onClick={() => navigate('/settings/profile')}
-        /> */}
-      </div>
-      <div className="notification_icon margin_right">
-        <Navbutton icon={Assets.bell} />
-      </div>
-      <div
-        className="navbar_logout_wrapper"
-        onMouseOver={() => setState({ hover: true })}
-        onMouseLeave={() => setState({ hover: false })}>
-        <div className="navbar_user_image">
-          <img
-            src={userState?.auth?.profile_picture || Assets.profile_placeholder}
-            width={35}
-            className="navbar_profile_image"
-            height={35}
-          />
+    <div className="navbar_container">
+      <div className="navbar_logo_container">
+        <div className="navbar_logo">
+          <img src={Assets.logo} />
         </div>
-        <div className="navbar_logout_text">
-          <div className="navbar_logout_user_name">
-            {userState?.auth?.first_name}
-          </div>
+        <div className="navbar_brand_text">
+          <div className="navbar_brand_text_1">Terms & Condition</div>
+          <div className="navbar_brand_text_2">Checker</div>
         </div>
-        <div className="navbar_logout_icon" onClick={handleLogout}>
-          <img src={Assets.logout} width={20} height={20} />
+      </div>
+      <div className="navbar_end_container">
+        <div className="navbar_upgrade_button_container">
+          <PrimaryButton
+            startIcon={<Icon src={Assets.crown} />}
+            style={{
+              backgroundColor: Colors.primaryLightColor,
+              color: Colors.buttonTextColor,
+            }}>
+            Upgrade
+          </PrimaryButton>
         </div>
-        {state.hover && (
-          <div className="navabr_profile_hover_container">
-            <div className="navbar_profile_user_name">
-              {userState?.auth?.first_name} {userState?.auth?.last_name}
+        <div className="navbar_upgrade_button_container">
+          <PrimaryButton style={{ color: Colors.primaryDarkColor }}>
+            My Agreement
+          </PrimaryButton>
+        </div>
+        <OutsideClickHandler
+          onOutsideClick={() => {
+            setState({ showDropdown: false });
+          }}>
+          <div className="navbar_profile_button_container">
+            <div
+              className="navbar_profile_button_wrapper"
+              onClick={() => {
+                setState({ showDropdown: !state.showDropdown });
+              }}>
+              <img src={Assets.profilePlaceholder} alt="Profile placeholder" />
             </div>
-            <div className="navbar_profile_user_name">
-              {userState?.auth?.job_title}
-            </div>
+            {state.showDropdown && (
+              <div className="navbar_profile_dropdown_container">
+                <div className="navbar_dropdown_info_container">
+                  <div className="navbar_dropdown_name">Yuvaraj</div>
+                  <div className="navbar_dropdown_email">
+                    Yuvaraj@yopmail.com
+                  </div>
+                </div>
+                <div className="navbar_menu_container">
+                  <div className="navbar_menu_wrapper">
+                    <div className="navbar_menu_icon">
+                      <img src={Assets.settings} />
+                    </div>
+                    <div className="navbar_menu_text">Settings</div>
+                  </div>
+                  <div className="navbar_menu_wrapper">
+                    <div className="navbar_menu_icon">
+                      <img src={Assets.billing} />
+                    </div>
+                    <div className="navbar_menu_text">Billing</div>
+                  </div>
+                  <div className="navbar_menu_wrapper">
+                    <div className="navbar_menu_icon">
+                      <img src={Assets.help} />
+                    </div>
+                    <div className="navbar_menu_text">Help And Support</div>
+                  </div>
+                </div>
+                <div className="navbar_logout_container">
+                  <div className="navbar_menu_icon">
+                    <img src={Assets.logout} />
+                  </div>
+                  <div className="navbar_menu_text">Log out</div>
+                </div>
+              </div>
+            )}
           </div>
-        )}
+        </OutsideClickHandler>
       </div>
     </div>
   );

@@ -1,5 +1,10 @@
-$primaryDarkColor: #10213f;
-$primaryLightColor: #586479;
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+
+$primaryDarkColor: #41313e;
+$primaryLightColor: #e7b10a;
 $primaryDarkText: #0b162b;
 $primaryLightText: #8e8e93;
 $secondaryDarkColor: #f16722;
@@ -32,7 +37,7 @@ $socialBtnColor: #0bb78c;
 $checkboxActive: #7fba7a;
 $iconBadgeBackground: #ff754c;
 $primaryCardColor: #f0f3f6;
-$primaryBorderColor: rgba(128, 129, 145, 0.6);
+$primaryBorderColor: #e0e0e0;
 $secondaryBorderColor: #1c7bdf;
 $primaryNumberBg: rgba(28, 123, 212, 0.2);
 $error: #ea5224;
