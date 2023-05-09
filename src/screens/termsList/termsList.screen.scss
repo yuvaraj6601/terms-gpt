@@ -1,0 +1,17 @@
+@import '../../index.scss';
+.list_screen {
+  height: calc(100vh - 60px);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  .list_container {
+    width: 70%;
+    .list_header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0px;
+    }
+  }
+}

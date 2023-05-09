@@ -14,21 +14,18 @@ const TextArea = (props: any) => {
   const [state, setState] = useSetState({});
 
   return (
-    <div style={{ width: '100%' }}>
+    <div className={state.focus ? 'text_area_active' : 'textarea_container'}>
       <textarea
         onBlur={() => {
           setState({ focus: false });
         }}
-        className={state.focus ? 'active' : ''}
         onFocus={() => setState({ focus: true })}
         {...props}
+        style={{ border: '0px', outline: '0px' }}
       />
-      {props.error &&
-        props.error.map((error: any) => (
-          <div className="input_field_error">
-            {props.name === error?.path && error.message}
-          </div>
-        ))}
+      {props.error && (
+        <div className="error_message_container">{props.error}</div>
+      )}
     </div>
   );
 };

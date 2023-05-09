@@ -6,9 +6,11 @@ import Main from 'common_components/hoc/main.hoc';
 import store from 'store/store';
 import { Provider } from 'react-redux';
 import Home from 'screens/home/home.screen';
+import LandingPage from 'screens/landingPage/landingPage.screen';
+import TermsList from 'screens/termsList/termsList.screen';
+import ViewSummary from 'screens/viewSummary/viewSummary.screen';
 
-const token = localStorage.getItem("token");
-
+const token = localStorage.getItem('token');
 
 function App() {
   return (
@@ -16,14 +18,41 @@ function App() {
       <BrowserRouter>
         <Suspense fallback={<div />}>
           <Routes>
-            <Route path="/" element={
-              <Main><Test/></Main>
-            }>
-            </Route>
-            <Route path="/home" element={
-              <Main><Home/></Main>
-            }>
-            </Route>
+            <Route
+              path="/"
+              element={
+                <Main>
+                  <LandingPage />
+                </Main>
+              }></Route>
+            <Route
+              path="/home"
+              element={
+                <Main>
+                  <Home />
+                </Main>
+              }></Route>
+            <Route
+              path="/test"
+              element={
+                <Main>
+                  <Test />
+                </Main>
+              }></Route>
+            <Route
+              path="/terms_list"
+              element={
+                <Main>
+                  <TermsList />
+                </Main>
+              }></Route>
+            <Route
+              path="/view_summary"
+              element={
+                <Main>
+                  <ViewSummary />
+                </Main>
+              }></Route>
           </Routes>
         </Suspense>
       </BrowserRouter>

@@ -17,6 +17,7 @@ const Light = {
   focusOutLine: "#C9C9C9",
   otpOutLine: "#EBEBEB",
   cancel: "#E73F3F",
+  primaryButtonColor: "#2196F3",
 };
 
 const Dark = {
@@ -36,6 +37,7 @@ const Dark = {
   focusOutLine: "#CFCFCF",
   otpOutLine: "#EBEBEB",
   cancel: "#E73F3F",
+  primaryButtonColor: "#2196F3",
 };
 
 export default isDark ? Dark : Light;

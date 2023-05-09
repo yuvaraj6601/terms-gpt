@@ -46,38 +46,44 @@ const TableComponent = (props: ITableComponent) => {
 
   const rowData = [
     { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
-    { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
-    { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
-    { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
-    { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
-    { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
-    { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
-    { name: 'terms 1', date: '12:12:23', grade: 'grade a' },
+    { name: 'terms 2', date: '12:12:23', grade: 'grade a' },
+    { name: 'terms 3', date: '12:12:23', grade: 'grade a' },
+    { name: 'terms 4', date: '12:12:23', grade: 'grade a' },
+    { name: 'terms 5', date: '12:12:23', grade: 'grade a' },
+    { name: 'terms 6', date: '12:12:23', grade: 'grade a' },
+    { name: 'terms 7', date: '12:12:23', grade: 'grade a' },
+    { name: 'terms 8', date: '12:12:23', grade: 'grade a' },
   ];
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className="table_wrapper">
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell component="th" scope="row">
+          <TableRow className="table_row">
+            <TableCell component="th" scope="row" width={'50%'} align="left">
               Name
             </TableCell>
-            <TableCell align="center">Date</TableCell>
-            <TableCell align="center">Grade</TableCell>
-            <TableCell align="center" />
-            <TableCell align="center" />
+            <TableCell align="left" width={'20%'}>
+              Date
+            </TableCell>
+            <TableCell align="left" width={'15%'}>
+              Grade
+            </TableCell>
+            <TableCell align="left" width={'15%'} />
+            {/* <TableCell align="center" /> */}
           </TableRow>
         </TableHead>
         <TableBody>
           {rowData.map((row) => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" align="left">
                 {row.name}
               </TableCell>
-              <TableCell align="center">{row.date}</TableCell>
-              <TableCell align="center">
-                <div className="table_grade_container">
+              <TableCell align="left" className="table_row">
+                {row.date}
+              </TableCell>
+              <TableCell align="left" className="table_row">
+                <div className="table_grade_container_1">
                   <div
                     className="table_grade_wrapper"
                     style={{ backgroundColor: 'red' }}>
@@ -85,12 +91,12 @@ const TableComponent = (props: ITableComponent) => {
                   </div>
                 </div>
               </TableCell>
-              <TableCell align="center">
+              {/* <TableCell align="left">
                 <IconButton aria-label="edit" size="large">
                   <EditIcon />
                 </IconButton>
-              </TableCell>
-              <TableCell align="center">
+              </TableCell> */}
+              <TableCell align="left" className="table_row">
                 <IconButton aria-label="delete" size="large">
                   <DeleteIcon fontSize="inherit" />
                 </IconButton>

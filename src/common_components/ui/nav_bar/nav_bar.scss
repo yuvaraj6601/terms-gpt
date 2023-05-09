@@ -2,11 +2,14 @@
 .navbar_container {
   display: flex;
   border-bottom: 1px solid $primaryBorderColor;
-  padding: 20px;
+  padding: 0px 20px;
   justify-content: space-between;
+  height: 60px;
+  align-items: center;
   .navbar_logo_container {
     display: flex;
     gap: 20px;
+    align-items: center;
   }
   .navbar_end_container {
     display: flex;
@@ -56,5 +59,11 @@
     font-family: 'Roboto';
     font-size: 13px;
     font-weight: 400;
+  }
+  .navbar_brand_text_1,
+  .navbar_brand_text_2 {
+    font-family: 'Open Sans';
+    font-size: 12px;
+    font-weight: 600;
   }
 }

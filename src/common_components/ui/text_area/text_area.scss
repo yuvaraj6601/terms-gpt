@@ -2,19 +2,25 @@
 
 textarea {
   width: 100%;
-  height: 200px;
-  padding: 15px;
+  height: 180px;
   border: none;
-  border-radius: 8px;
-  font-size: 13px;
-  color: $inputPlaceholder;
-  font-family: 'Poppins', sans-serif;
-  background-color: $inputBackground;
+  font-size: 14px;
+  font-family: 'Roboto';
+  background-color: transparent;
   resize: none;
+  font-weight: 400;
 }
 .text_area_active {
-  font-weight: 600;
-  color: black !important;
-  background-color: $buttonTextColor;
-  font-size: 14px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: $primaryInputBackground;
+  outline: 2px solid blue;
+}
+.textarea_container {
+  color: '#1A202C';
+  padding: '20px';
+  padding: 20px;
+  border-radius: 12px;
+  background-color: $primaryInputBackground;
+  outline: 2px solid $secondaryBorderColor;
 }

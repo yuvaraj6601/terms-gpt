@@ -48,12 +48,21 @@ const Navbar = (props: any) => {
             style={{
               backgroundColor: Colors.primaryLightColor,
               color: Colors.buttonTextColor,
+              fontFamily: 'Roboto',
+              textTransform: 'capitalize',
+              width: '124px',
             }}>
             Upgrade
           </PrimaryButton>
         </div>
         <div className="navbar_upgrade_button_container">
-          <PrimaryButton style={{ color: Colors.primaryDarkColor }}>
+          <PrimaryButton
+            style={{
+              color: Colors.primaryDarkColor,
+              fontFamily: 'Roboto',
+              textTransform: 'capitalize',
+              width: '124px',
+            }}>
             My Agreement
           </PrimaryButton>
         </div>

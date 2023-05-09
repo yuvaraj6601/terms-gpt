@@ -1,0 +1,90 @@
+@import '../../index.scss';
+.view_screen {
+  width: 100vw;
+  height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .view_container {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .view_terms_container {
+      width: 65%;
+      border: 0.6px solid $secondaryBorderColor;
+      height: 100%;
+      border-radius: 14px;
+      overflow: scroll;
+      .view_terms_wrapper {
+        padding: 40px;
+        font-family: 'Roboto';
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+    .view_summary_problems_container {
+      height: 100%;
+      width: 30%;
+      .view_summary_problems_wrapper {
+        height: 100%;
+      }
+      .view_grade_container {
+        height: 13%;
+        display: flex;
+        align-items: center;
+        padding: 0px 30px;
+        color: $buttonTextColor;
+        font-family: 'Roboto';
+        font-size: 14px;
+        font-weight: 700;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+      }
+      .view_summary_container,
+      .view_problems_container {
+        height: 50%;
+        border: 1px solid $secondaryBorderColor;
+        .view_summary_header,
+        .view_problems_header {
+          display: flex;
+          justify-content: space-between;
+          margin: 20px 20px 0px 20px;
+          border-bottom: 1px solid $secondaryBorderColor;
+          padding-bottom: 10px;
+          font-family: 'Roboto';
+          font-size: 18px;
+          font-weight: 400;
+        }
+        .view_summary_body,
+        .view_problems_body {
+          padding: 20px;
+
+          .view_summary_points,
+          .view_problems_points {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .view_problems_points_text,
+            .view_summary_points_text {
+              font-family: 'Roboto';
+              font-size: 16px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
+      .view_summary_container {
+        border-bottom: 0px !important;
+      }
+      .view_problems_container {
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+      .view_summary_problems_section {
+        height: 87%;
+      }
+    }
+  }
+}

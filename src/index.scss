@@ -2,6 +2,7 @@
 @import '@fontsource/roboto/400.css';
 @import '@fontsource/roboto/500.css';
 @import '@fontsource/roboto/700.css';
+@import "@fontsource/open-sans";
 
 $primaryDarkColor: #41313e;
 $primaryLightColor: #e7b10a;
@@ -38,6 +39,7 @@ $checkboxActive: #7fba7a;
 $iconBadgeBackground: #ff754c;
 $primaryCardColor: #f0f3f6;
 $primaryBorderColor: #e0e0e0;
-$secondaryBorderColor: #1c7bdf;
+$secondaryBorderColor: rgba(61, 71, 82, 0.25);
 $primaryNumberBg: rgba(28, 123, 212, 0.2);
 $error: #ea5224;
+$primaryInputBackground: #FEFDFE;

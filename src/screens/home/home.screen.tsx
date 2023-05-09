@@ -9,11 +9,13 @@ import {
   TextArea,
   FileUpload,
   Assets,
+  Colors,
 } from 'utils/imports.utils';
 import { testDispatch } from 'utils/redux.utils';
 import './home.screen.scss';
 import axios from 'axios';
 import { getBaseURL } from 'utils/functions.utils';
+import DoneIcon from '@mui/icons-material/Done';
 
 interface IHome {
   text?: String;
@@ -26,7 +28,7 @@ const Home = (props: IHome) => {
 
   // State
   const [state, setState] = useSetState({
-    input: '',
+    terms: '',
     problems: '',
     summary: '',
   });
@@ -48,7 +50,7 @@ const Home = (props: IHome) => {
   const getSummaryAndProblem = async () => {
     try {
       let body = {
-        terms: JSON.stringify(state.input),
+        terms: JSON.stringify(state.terms),
       };
       console.log('body', body);
       const res: any = await Models.test.getSummaryAndProblem(body);
@@ -95,51 +97,48 @@ const Home = (props: IHome) => {
 
   return (
     <>
-      <div className="home_container">
-        <div className="home_wrapper">
-          <div className="input_field">
-            <input
-              type="file"
-              onChange={(data: any) => {
-                getSummaryFromPdf(data.target.files[0]);
-                console.log(
-                  'getSummaryFromPdf(data.target.files[0])',
-                  data.target.files[0],
-                );
-              }}
-            />
+      <div className="home_screen">
+        <div className="home_container">
+          <div className="home_header_container">
+            <div className="home_header_text1">Simplify your agreements;</div>
+            <div className="home_header_text2">
+              Identify key points & issues.
+            </div>
+          </div>
+          <div className="home_input_container">
             <TextArea
-              className="input_textarea"
               name="input"
-              value={state.input}
+              value={state.terms}
               onChange={(text: any) => {
-                setState({ input: text.target.value });
+                setState({ terms: text.target.value });
               }}
-              placeholder="Enter your terms and conditions"
+              placeholder="Paste your terms and conditions"
             />
           </div>
-          <div className="button_field">
-            <PrimaryButton onClick={() => getSummaryAndProblem()}>
-              Get Summary And Problem
+          <div className="home_file_upload_container">
+            <FileUpload onChange={() => {}}>
+              <div className="home_file_upload_wrapper">
+                <div className="home_file_upload_icon">
+                  <img src={Assets.upload} />
+                </div>
+                <div className="home_file_upload_text">
+                  Drag and drop or browse your file
+                </div>
+              </div>
+            </FileUpload>
+          </div>
+          <div className="home_check_agreement_button">
+            <PrimaryButton
+              startIcon={<DoneIcon />}
+              style={{
+                backgroundColor: Colors.primaryButtonColor,
+                color: Colors.buttonTextColor,
+                textTransform: 'capitalize',
+                fontSize: '15px',
+                padding: '8px 20px',
+              }}>
+              Check Agreement
             </PrimaryButton>
-          </div>
-          <div className="output_field">
-            <TextArea
-              className="output_textarea"
-              name="output"
-              value={state.summary}
-              onChange={() => {}}
-              placeholder="Summary of your terms and condition"
-            />
-          </div>
-          <div className="output_field">
-            <TextArea
-              className="output_textarea"
-              name="output"
-              value={state.problems}
-              onChange={() => {}}
-              placeholder="Problems of your terms and condition"
-            />
           </div>
         </div>
       </div>

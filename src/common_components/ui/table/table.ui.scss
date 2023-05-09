@@ -3,14 +3,24 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  .table_grade_wrapper {
-    width: fit-content;
-    font-family: 'Roboto';
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: capitalize;
-    padding: 8px;
-    border-radius: 4px;
-    color: $buttonTextColor;
-  }
+}
+.table_grade_wrapper {
+  width: fit-content;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 0px 8px;
+  border-radius: 4px;
+  color: $buttonTextColor;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table_row {
+  padding: 0px !important;
+}
+.table_wrapper {
+  box-shadow: none !important;
 }

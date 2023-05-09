@@ -1,0 +1,49 @@
+@import '../../index.scss';
+
+.home_screen {
+  height: calc(100vh - 60px);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .home_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    .home_header_container {
+      width: 100%;
+      text-align: center;
+      .home_header_text1,
+      .home_header_text2 {
+        font-family: 'Roboto';
+        font-size: 32px;
+        font-weight: 300;
+      }
+    }
+    .home_input_container {
+      width: 100%;
+    }
+    .home_file_upload_container {
+      width: 100%;
+    }
+    .home_file_upload_wrapper {
+      border: 1px dashed $secondaryBorderColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 0px;
+      border-radius: 12px;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .home_container {
+      font-family: 'Roboto';
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 19px;
+    }
+  }
+}
