@@ -16,6 +16,7 @@ interface IFileUpload {
   type?: string;
   multiple?: boolean;
   folder?: string;
+  accept?: string;
 }
 
 const FileUpload = forwardRef((props: IFileUpload, ref: any) => {
@@ -41,7 +42,7 @@ const FileUpload = forwardRef((props: IFileUpload, ref: any) => {
     dropArea?.addEventListener('drop', (e) => {
       e.preventDefault();
       // dropArea?.classList.remove('upload_box_container_hover');
-      uploadFiles(e.dataTransfer.files[0]);
+      props.onChange(e.dataTransfer.files[0]);
     });
   }, []);
 
@@ -52,49 +53,10 @@ const FileUpload = forwardRef((props: IFileUpload, ref: any) => {
   }));
 
   //Network req
-  const uploadFiles = async (file: any) => {
-    try {
-      let body: any = {
-        file_type: file.type,
-        file_name: file.name,
-      };
-      if (props.folder) {
-        body.folder = props.folder;
-      }
-      const content: any = await Models.auth.uploadFile(body);
-      Functions.uploadFile(
-        file,
-        content.signedRequest,
-        content.url,
-        function (res) {
-          setState({ profile_picture: res?.url });
-          props.onChange(res?.url);
-        },
-      );
-    } catch (error) {
-      toastifyError(error);
-    }
-  };
+  
 
   //Logic
-  const onChange = async (e: any) => {
-    try {
-      if (props.type == 'csv') {
-        props.onChange(e.target.files[0]);
-      } else {
-        if (props.multiple) {
-          let files = e.target.files;
-          for (let i = 0; i <= files.length; i++) {
-            await uploadFiles(files[i]);
-          }
-        } else {
-          await uploadFiles(e.target.files[0]);
-        }
-      }
-    } catch (error) {
-      console.log('error', error);
-    }
-  };
+  
 
   return (
     <div id="drag_area">
@@ -109,9 +71,10 @@ const FileUpload = forwardRef((props: IFileUpload, ref: any) => {
             onClick={(e: any) => (e.target.value = null)}
             className={'file_upload_box'}
             onChange={(e: any) => {
-              onChange(e);
+              props.onChange(e.target.files[0])
             }}
-            multiple
+            // multiple
+            accept={props.accept}
           />
         </label>
       </div>

@@ -20,3 +20,8 @@
     font-weight: 400;
   }
 }
+@media all and (max-width: 767px) {
+  .landing_page_container {
+    width: 80% !important;
+  }
+}

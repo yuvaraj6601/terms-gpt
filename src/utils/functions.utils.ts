@@ -2,7 +2,8 @@ import _ from 'lodash';
 import React from 'react';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import toast, { Toaster } from 'react-hot-toast';
+
 import {
   explanations,
   feminine_coded_words,
@@ -53,24 +54,17 @@ export const modelError = (error: any) => {
 };
 
 export const toastifyError = (text?: any) => {
-  toast.error(text, {
-    position: 'top-center',
-    // autoClose: 5000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-  });
+  if (!_.isEmpty(text)) {
+    toast.error(text, {
+      position: 'top-center',
+      duration: 3000,
+    });
+  }
 };
 
 export const toastify = (text?: any) => {
-  toast(text, {
+  toast.success(text, {
     position: 'top-center',
-    // autoClose: 5000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
   });
 };
 
@@ -178,73 +172,17 @@ export const mergeArrayWithoutDuplicates = (array1: any, array2: any) => {
     return Array.from(new Set([...array1, ...array2]));
   }
 };
-export const isGenderBiased = (text: string) => {
-  let masculineWords = masculine_coded_words;
-  let feminineWords = feminine_coded_words;
-  let masculineCount = 0;
-  let feminineCount = 0;
-  let textWords = text.split(' ');
-  let genderbiasedObject = {
-    masculine: {},
-    feminine: {},
-  };
-
-  for (var i = 0; i < textWords.length; i++) {
-    if (masculineWords.includes(textWords[i])) {
-      masculineCount++;
-      if (genderbiasedObject.masculine[textWords[i]] == undefined) {
-        genderbiasedObject.masculine[textWords[i]] = 1;
-      } else {
-        genderbiasedObject.masculine[textWords[i]] =
-          genderbiasedObject.masculine[textWords[i]] + 1;
-      }
-    } else if (feminineWords.includes(textWords[i])) {
-      feminineCount++;
-      if (genderbiasedObject.feminine[textWords[i]] == undefined) {
-        genderbiasedObject.feminine[textWords[i]] = 1;
-      } else {
-        genderbiasedObject.feminine[textWords[i]] =
-          genderbiasedObject.feminine[textWords[i]] + 1;
-      }
-    }
-  }
-
-  let genderStrength = {};
-  if (masculineCount > feminineCount) {
-    if (masculineCount - feminineCount > 1) {
-      genderStrength['strength'] = possible_codings[4];
-      genderStrength['reason'] = explanations[possible_codings[4]];
-    } else {
-      genderStrength['strength'] = possible_codings[3];
-      genderStrength['reason'] = explanations[possible_codings[3]];
-    }
-  } else if (masculineCount < feminineCount) {
-    if (feminineCount - masculineCount > 1) {
-      genderStrength['strength'] = possible_codings[0];
-      genderStrength['reason'] = explanations[possible_codings[0]];
-    } else {
-      genderStrength['strength'] = possible_codings[1];
-      genderStrength['reason'] = explanations[possible_codings[1]];
-    }
-  } else {
-    genderStrength['strength'] = possible_codings[2];
-    genderStrength['reason'] = explanations[possible_codings[2]];
-  }
-
-  genderbiasedObject.feminine = Object.entries(genderbiasedObject.feminine);
-  genderbiasedObject.masculine = Object.entries(genderbiasedObject.masculine);
-
-  let genderData: any = {
-    genderStrength: genderStrength,
-    genderData: [
-      { gender: 'Masculine coded words', data: genderbiasedObject.masculine },
-      { gender: 'Feminine coded words', data: genderbiasedObject.feminine },
-    ],
-  };
-  return genderData;
-};
-
 export const gets3FileName = (file: any) => {
   let filename: string = file.split('/').pop();
   return filename.split('_').pop();
+};
+
+export const checkURL = (url: string) => {
+  if (url.match(/\.(jpeg|jpg|gif|png|JPEG|JPG|GIF|PNG|HEIC|heic)$/) !== null) {
+    return 'image';
+  } else if (url.match(/\.(mp4|MP4|mov|MOV|HEVC|hevc)$/) !== null) {
+    return 'video';
+  } else if (url.match(/\.(pdf|docs|xls|xlsx|doc|txt|ppt|pptx)$/) !== null) {
+    return 'document';
+  }
 };

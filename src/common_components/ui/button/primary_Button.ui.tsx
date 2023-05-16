@@ -4,11 +4,22 @@ import { useSetState } from 'utils/functions.utils';
 import { testDispatch } from 'utils/redux.utils';
 import { Button, ButtonProps } from '@mui/material';
 import './primaryButton.scss';
+import CircularProgress from '@mui/material/CircularProgress';
 
-const PrimaryButton = (props: ButtonProps) => {
+interface CustomButtonProps extends ButtonProps {
+  activity?: boolean;
+}
+
+const PrimaryButton = (props: CustomButtonProps) => {
   return (
     <div>
-      <Button {...props} />
+      {props.activity ? (
+        <div>
+          <CircularProgress color="inherit" thickness={1} />
+        </div>
+      ) : (
+        <Button {...props} />
+      )}
     </div>
   );
 };

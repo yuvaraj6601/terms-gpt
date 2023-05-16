@@ -14,6 +14,14 @@ import greenTick from 'assets/icons/greenTick.svg';
 import redDot from 'assets/icons/redDot.svg';
 import arrowDropDown from 'assets/icons/ArrowDropDown.svg';
 import upload from 'assets/icons/upload.svg';
+import back from 'assets/icons/back.svg';
+import menu from 'assets/icons/menu.svg';
+import myAgreement from 'assets/icons/myAgreement.svg';
+import crownBig from 'assets/icons/crownBig.svg';
+import camera from 'assets/icons/camera.svg';
+import cameraClick from 'assets/icons/cameraClick.svg';
+import cameraRetake from 'assets/icons/cameraRetake.svg';
+import warning from 'assets/icons/warning.svg';
 
 const Assets = {
   testPic,
@@ -32,6 +40,14 @@ const Assets = {
   redDot,
   arrowDropDown,
   upload,
+  back,
+  menu,
+  myAgreement,
+  crownBig,
+  camera,
+  cameraClick,
+  cameraRetake,
+  warning,
 };
 
 export default Assets;

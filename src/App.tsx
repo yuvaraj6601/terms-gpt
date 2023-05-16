@@ -9,6 +9,9 @@ import Home from 'screens/home/home.screen';
 import LandingPage from 'screens/landingPage/landingPage.screen';
 import TermsList from 'screens/termsList/termsList.screen';
 import ViewSummary from 'screens/viewSummary/viewSummary.screen';
+import 'react-responsive-modal/styles.css';
+import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const token = localStorage.getItem('token');
 
@@ -54,6 +57,7 @@ function App() {
                 </Main>
               }></Route>
           </Routes>
+          <Toaster position="top-center" />
         </Suspense>
       </BrowserRouter>
     </Provider>

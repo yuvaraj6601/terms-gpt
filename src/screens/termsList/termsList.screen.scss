@@ -15,3 +15,21 @@
     }
   }
 }
+
+@media all and (max-width: 767px) {
+  .list_container {
+    width: 90% !important;
+  }
+  .new_agreement_button {
+    display: none !important;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .tablet_view {
+    display: none !important;
+  }
+  .add_button {
+    display: none !important;
+  }
+}

@@ -15,6 +15,8 @@ import FileUpload from 'common_components/ui/file_upload/file_upload.ui';
 import TextArea from 'common_components/ui/text_area/text_area.ui';
 import Icon from 'common_components/ui/icon/icon.ui';
 import TableComponent from 'common_components/ui/table/table.ui';
+import CameraComponent from 'common_components/ui/camera/camera.ui';
+import FullPageLoader from 'common_components/ui/fullPageLoader/full_page_loader.ui';
 
 export {
   Functions,
@@ -33,4 +35,6 @@ export {
   TextArea,
   Icon,
   TableComponent,
+  CameraComponent,
+  FullPageLoader,
 };

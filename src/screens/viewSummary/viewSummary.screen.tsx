@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useImperativeHandle } from 'react';
 import { useSelector } from 'react-redux';
 import { useSetState } from 'utils/functions.utils';
-import { Assets, Functions, Models } from 'utils/imports.utils';
+import { Assets, Colors, Functions, Models } from 'utils/imports.utils';
 import { testDispatch } from 'utils/redux.utils';
 import './viewSummary.screen.scss';
-
+import { useNavigate, useLocation } from 'react-router-dom';
 interface IViewSummary {
   text?: String;
 }
@@ -12,12 +12,14 @@ interface IViewSummary {
 const ViewSummary = (props: IViewSummary) => {
   // Redux
   const testState = useSelector((state: any) => state.test);
+  const terms = useSelector((state: any) => state.terms);
 
   // State
   const [state, setState] = useSetState({});
 
   //Hooks
   useEffect(() => {}, []);
+  let navigate = useNavigate();
 
   // Network req
   const testReq = async () => {
@@ -34,58 +36,52 @@ const ViewSummary = (props: IViewSummary) => {
   //Logic
   const testLogic = () => {};
 
+  const returnGrade = (problems) => {
+    if (problems.length < 7) {
+      return 'These terms and conditions seem to be fair to all parties involved.';
+    } else if (problems.length >= 7 && problems.length <= 10) {
+      return 'These terms and conditions are kind of meh, not good or bad.';
+    } else if (problems.length > 10) {
+      return 'These terms and conditions are not good';
+    }
+  };
+
+  const returnGradeColor = (problems) => {
+    if (problems.length < 7) {
+      return Colors.successBackground;
+    } else if (problems.length >= 7 && problems.length <= 10) {
+      return Colors.warningBackground;
+    } else if (problems.length > 10) {
+      return Colors.errorBackground;
+    }
+  };
+
   return (
     <div className="view_screen">
+      <div className="view_screen_header">
+        <div
+          className="view_back_button_container"
+          onClick={() => {
+            navigate(-1);
+          }}>
+          <div className="view_back_button_icon">
+            <img src={Assets.back} />
+          </div>
+          <div className="view_back_button_text">Back</div>
+        </div>
+      </div>
       <div className="view_container">
         <div className="view_terms_container">
-          <div className="view_terms_wrapper">
-            Acceptance of Terms: Acceptance of Terms: By accessing and using
-            this website, you agree to be bound by these terms and conditions.
-            Use of Website: You may only use this website for lawful purposes
-            and in compliance with all applicable laws and regulations. You may
-            not use this website in any way that may cause harm to the website,
-            its users, or any other person or entity. Privacy: Our privacy
-            policy outlines how we collect, use, and disclose your personal
-            information. By using this website, you consent to our use of your
-            personal information in accordance with our privacy policy.
-            Intellectual Property: All content on this website, including text,
-            graphics, logos, and images, is the property of the website owner
-            and is protected by copyright laws. You may not use any of this
-            content without prior written consent from the website owner.
-            Disclaimer of Warranties: This website is provided "as is" and we
-            make no warranties, express or implied, about the accuracy,
-            reliability, completeness, or timeliness of the content on this
-            website. Acceptance of Terms: By accessing and using this website,
-            you agree to be bound by these terms and conditions. Use of Website:
-            You may only use this website for lawful purposes and in compliance
-            with all applicable laws and regulations. You may not use this
-            website in any way that may cause harm to the website, its users, or
-            any other person or entity. Privacy: Our privacy policy outlines how
-            we collect, use, and disclose your personal information. By using
-            this website, you consent to our use of your personal information in
-            accordance with our privacy policy. Intellectual Property: All
-            content on this website, including text, graphics, logos, and
-            images, is the property of the website owner and is prot ected by
-            copyright laws. Intellectual Property: All content on this website,
-            including text, graphics, logos, and images, is the property of the
-            website owner and is protected by copyright laws. Intellectual
-            Property: All content on this website, including text, graphics,
-            logos, and images, is the property of the website owner and is
-            protected by copyright laws. Intellectual Property: All content on
-            this website, including text, graphics, logos, and images, is the
-            property of the website owner and is protected by copyright laws.
-            Intellectual Property: All content on this website, including text,
-            graphics, logos, and images, is the property of the website owner
-            and is protected by copyright laws.
-          </div>
+          <div className="view_terms_wrapper">{JSON.parse(terms.terms)}</div>
         </div>
         <div className="view_summary_problems_container">
           <div className="view_summary_problems_wrapper">
             <div
               className="view_grade_container"
-              style={{ backgroundColor: '#00A124' }}>
-              These terms and conditions seem to be fair to all parties
-              involved.
+              style={{
+                backgroundColor: returnGradeColor(terms.problems),
+              }}>
+              {returnGrade(terms.problems)}
             </div>
             <div className="view_summary_problems_section">
               <div className="view_summary_container">
@@ -96,14 +92,19 @@ const ViewSummary = (props: IViewSummary) => {
                   </div>
                 </div>
                 <div className="view_summary_body">
-                  <div className="view_summary_points">
-                    <div className="view_summary_points_icon">
-                      <img src={Assets.greenTick} />
-                    </div>
-                    <div className="view_summary_points_text">
-                      thi whbdw edihbwed edjbhd dbdewb ejbdw
-                    </div>
-                  </div>
+                  {terms.summary.map((item) => {
+                    return (
+                      <div className="view_summary_points">
+                        <div className="view_summary_points_icon">
+                          <img src={Assets.greenTick} />
+                        </div>
+                        <div className="view_summary_points_text">{item}</div>
+                        <div className="view_summary_warning_icon">
+                          <img src={Assets.warning} />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -115,14 +116,19 @@ const ViewSummary = (props: IViewSummary) => {
                   </div>
                 </div>
                 <div className="view_problems_body">
-                  <div className="view_problems_points">
-                    <div className="view_problems_points_icon">
-                      <img src={Assets.redDot} />
-                    </div>
-                    <div className="view_problems_points_text">
-                      thi whbdw edihbwed edjbhd dbdewb ejbdw
-                    </div>
-                  </div>
+                  {terms.problems.map((item) => {
+                    return (
+                      <div className="view_problems_points">
+                        <div className="view_problems_points_icon">
+                          <img src={Assets.redDot} />
+                        </div>
+                        <div className="view_problems_points_text">{item}</div>
+                        <div className="view_problems_warning_icon">
+                          <img src={Assets.warning} />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
